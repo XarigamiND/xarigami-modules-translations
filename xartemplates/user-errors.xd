@@ -1,0 +1,82 @@
+<!-- License: GPL http://www.gnu.org/copyleft/gpl.html -->
+<div class="xar-mod-head">
+    <span class="xar-mod-title"><xar:mlstring>User Error</xar:mlstring></span>
+</div>
+<div class="xar-mod-body">
+    <fieldset>
+        <legend><xar:mlstring>User Error</xar:mlstring></legend>
+        <img src="#xarTplGetImage('user-error.png','base')#" alt="#xarML('System Message')#" width="96" height="96" class="xar-module-icon"/>
+        <xar:if condition="!isset($errortype)">
+            <div style="margin-top: 20px">
+                <xar:mlstring>No error message is available. </xar:mlstring>
+            <br />
+                <xar:mlstring>Please contact the system administrator.</xar:mlstring>
+            </div>
+        <xar:elseif condition="$errortype eq 'wrong_mls_mode'" />
+            <div style="margin-top: 20px">
+                <p>
+                    <xar:mlstring>To execute the translations module you must set the Multi Language System mode to UNBOXED.</xar:mlstring>
+                </p>
+            </div>    
+        <xar:elseif condition="$errortype eq 'missing_locale_skels'" />
+            <div style="margin-top: 20px">
+                <p>
+                    <xar:ml>
+                        <xar:mlstring>Before generating translations you must first generate skels for locale #(1).</xar:mlstring>
+                        <xar:mlvar>#$locale#</xar:mlvar>
+                    </xar:ml>
+                    <br />
+                    <br />
+                    <a href="#$link#">
+                        <xar:mlstring>Click here to proceed.</xar:mlstring>
+                    </a>
+                </p>
+            </div>   
+        
+        <xar:elseif condition="$errortype eq 'missing_core_skels'" />
+            <div style="margin-top: 20px">
+                <p>
+                    <xar:ml>
+                        <xar:mlstring>Before you can generate skels for the #(1) #(2), you must first generate skels for the core.</xar:mlstring>
+                        <xar:mlvar>#$type#</xar:mlvar>
+                        <xar:mlvar>#$name#</xar:mlvar>
+                        
+                    </xar:ml>
+                    <br />
+                    <br />
+                    <a href="#$link#">
+                        <xar:mlstring>Click here to proceed.</xar:mlstring>
+                    </a>
+                </p>
+            </div>    
+         <xar:elseif condition="$errortype eq 'missing_skels'" />
+            <div style="margin-top: 20px">
+                <p>
+                    <xar:mlstring>Before generating translations you must first generate skels.</xar:mlstring>
+                    <br />
+                    <br />
+                    <a href="#$link#">
+                        <xar:mlstring>Click here to proceed.</xar:mlstring>
+                    </a>
+                </p>
+            </div>  
+         <xar:elseif condition="$errortype eq 'missing_translations'" />
+            <div style="margin-top: 20px">
+                <p>
+                    <xar:mlstring>Before releasing translations package you must first generate translations.</xar:mlstring>
+                    <br />
+                    <br />
+                    <a href="#$link#">
+                        <xar:mlstring>Click here to proceed.</xar:mlstring>
+                    </a>
+                </p>
+            </div>    
+        <xar:else />
+            <div style="margin-top: 20px">
+                <xar:mlstring>No error message is available.</xar:mlstring> 
+                <br />
+                <xar:mlstring>Please contact the system administrator.</xar:mlstring>
+            </div>
+        </xar:if>
+    </fieldset>
+</div>

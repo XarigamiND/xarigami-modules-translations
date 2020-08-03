@@ -1,0 +1,25 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+          <xar:template type="module"  module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+            <xar:mlstring>Translate core</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+           <xar:template file="admin-menu" module="translations" type="module"/>
+
+            <h2><xar:mlstring>Translating the core</xar:mlstring></h2>
+            <xar:mlstring>Xaraya version number</xar:mlstring>: #$verNum#<br />
+            <xar:mlstring>Xaraya version id</xar:mlstring>: #$verId#<br />
+            <xar:mlstring>Xaraya version sub</xar:mlstring>: #$verSub#<br />
+            <br />
+            <xar:mlstring>Make a choice</xar:mlstring>:<br />
+            <br />
+            <xar:template type="module" file="opbar" />
+        </div>
+    </div>
+</div>

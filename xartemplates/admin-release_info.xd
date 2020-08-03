@@ -1,0 +1,35 @@
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+          <xar:template type="module"  module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+            <xar:mlstring>Release Info</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+           <xar:template file="admin-menu" module="translations" type="module"/>
+           <xar:template type="module" file="druidbar" />
+            <h2>
+              <xar:ml>
+                <xar:mlstring>Generating a release package for #(1) #(2)</xar:mlstring>
+                <xar:mlvar>#$dnTypeText#</xar:mlvar>
+                <xar:mlvar>#$dnName#</xar:mlvar>
+              </xar:ml>
+            </h2>
+
+            <p>
+              <xar:mlstring>Now we're going to generate release package, this operation could take several minutes. Just take a break!</xar:mlstring>
+            </p>
+            <form method="post" name="post" id="post" action="#xarModURL('translations', 'admin', 'release_result')#">
+            <input type="hidden" name="dnType" value="#$dnType#"/>
+            <input type="hidden" name="dnName" value="#$dnName#"/>
+            <input type="hidden" name="extid" value="#$extid#"/>
+            <input type="submit" value="#xarML('GO')#"/>
+            </form>
+            <br />
+            <xar:template type="module" file="opbar" />
+        </div>
+    </div>
+</div>

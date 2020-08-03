@@ -1,0 +1,41 @@
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+          <xar:template type="module"  module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+            <xar:mlstring>Packaging the translation</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+           <xar:template file="admin-menu" module="translations" type="module"/>
+            <xar:template type="module" file="druidbar" />
+            <p>
+            <xar:mlstring>Translations successfully generated. The results are shown below.</xar:mlstring>
+            </p>
+            <table width="100%">
+              <tr>
+                <td></td>
+                <td>Entries</td>
+                <td>Key Entries</td>
+              </tr>
+              <xar:loop name="$statistics">
+                <tr>
+                  <td>#$loop:key#</td>
+                  <td>#$loop:item['entries']#</td>
+                  <td>#$loop:item['keyEntries']#</td>
+                </tr>
+              </xar:loop>
+            </table>
+            <p>
+              <xar:ml>
+                <xar:mlstring>The operation took #(1) seconds.</xar:mlstring>
+                <xar:mlvar>#$time#</xar:mlvar>
+              </xar:ml>
+            </p>
+            <br />
+            <xar:template type="module" file="opbar" />
+        </div>
+    </div>
+</div>

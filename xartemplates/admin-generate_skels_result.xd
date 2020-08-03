@@ -1,0 +1,49 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+          <xar:template type="module"  module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+            <xar:mlstring>Generate Skels Results</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+           <xar:template file="admin-menu" module="translations" type="module"/>
+                <xar:template type="module" file="druidbar" />
+                <xar:if condition="!$dnTypeAll">
+                    <h4>
+                      <xar:ml>
+                        <xar:mlstring>Skeletons generated for #(1) #(2)</xar:mlstring>
+                        <xar:mlvar>#$dnTypeText#</xar:mlvar>
+                        <xar:mlvar>#$dnName#</xar:mlvar>
+                      </xar:ml>
+                    </h4>
+                    <p>
+                        <xar:mlstring>Skels successfully generated. The results are shown below.</xar:mlstring>
+                    </p>
+                    <table class="xar-fullwidth xar-noborder xar-align-left" cellpadding="2" cellspacing="1">
+                    <tr>
+                    <th>Job</th>
+                    <th>Entries</th><th>Key Entries</th>
+                    </tr>
+                    <xar:loop name="$statistics">
+                    <tr><td>#$loop:key#</td><td>#$loop:item['entries']#</td><td>#$loop:item['keyEntries']#</td></tr>
+                    </xar:loop>
+                    </table>
+                    <p><xar:ml>
+                    <xar:mlstring>The operation took #(1) seconds.</xar:mlstring>
+                    <xar:mlvar>#$time#</xar:mlvar>
+                    </xar:ml>
+                    </p>
+                <xar:else />
+                    <p>
+                    <xar:mlstring>All module skeletons successfully generated. </xar:mlstring>
+                    </p>
+                </xar:if>
+                <br />
+                <xar:template type="module" file="opbar" />
+        </div>
+    </div>
+</div>

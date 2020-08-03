@@ -1,0 +1,29 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+          <xar:template type="module"  module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+            <xar:mlstring>Translate</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+           <xar:template file="admin-menu" module="translations" type="module"/>
+
+            <xar:template type="module" file="druidbar"/>
+
+            <h4><xar:mlstring>What to translate?</xar:mlstring></h4>
+            <!-- voll p>
+              <xar:mlstring>Choose which part you want to translate from the list below.</xar:mlstring>
+            </p -->
+
+            <!-- Generated list of things for which there are skeletons -->
+            <xar:template type="module" file="trabar" />
+
+            <!-- Operations overview -->
+            <xar:template type="module" file="opbar" />
+        </div>
+    </div>
+</div>

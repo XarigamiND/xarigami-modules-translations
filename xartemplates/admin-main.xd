@@ -1,0 +1,66 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+          <xar:template type="module"  module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+            <xar:mlstring>Overview</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+           <xar:template file="admin-menu" module="translations" type="module"/>
+          <img src="#xarTplGetImage('admin.png', 'translations')#" alt="official icon" class="xar-module-icon" />
+          <h2>
+            <xar:mlstring>What is it?</xar:mlstring>
+          </h2>
+          <p>
+            <xar:mlstring>The Xaraya MLS is a tool to automate the translation process for Xaraya.
+              The process roughly consists of two parts:</xar:mlstring>
+            <ol>
+              <li><xar:mlstring>Translating</xar:mlstring></li>
+              <li><xar:mlstring>Generating &amp; Packaging</xar:mlstring></li>
+            </ol>
+          </p>
+
+          <h4><xar:mlstring>The translating process</xar:mlstring></h4>
+          <p>
+            <xar:mlstring>The translating proces consists of the following steps:</xar:mlstring>
+            <ol>
+              <li><xar:mlstring>Choosing the language (locale) to work on</xar:mlstring></li>
+              <li><xar:mlstring>Choosing what to translate</xar:mlstring></li>
+              <li><xar:mlstring>Generating / updating skeletons for the chosen locale and subsystem</xar:mlstring>
+                <br />
+                <xar:mlstring>For starting a translation it is useful to generate skeletons with 5 references for showing some context. After finishing the skeletons should be generated again without references. This avoids unneeded data and greatly reduces the load on our version control system.</xar:mlstring>
+                </li>
+              <li><xar:mlstring>Translating the terms found in the elements for the subsystem</xar:mlstring></li>
+            </ol>
+          </p>
+
+          <h4><xar:mlstring>The generating &amp; packaging process</xar:mlstring></h4>
+          <p>
+            <xar:mlstring>The generating and packaging process consists of the following steps:</xar:mlstring>
+            <ol>
+              <li><xar:mlstring>Generating the translation, giving an overview of the translated items</xar:mlstring></li>
+              <li><xar:mlstring>Packaging the generated translation in a downloadable archive</xar:mlstring></li>
+            </ol>
+          </p>
+
+          <p>
+            <a href="&xar-modurl-translations-admin-start;"><xar:mlstring>Start translating</xar:mlstring></a>
+          </p>
+            <h3><xar:mlstring>Further Information</xar:mlstring></h3>
+            <p>
+                 <xar:mlstring><a href="http://xartm.xaraya.hu/" title="Translation memory">XarTM</a> is a helpful independent database solution for maintaining translations in Xarigami.</xar:mlstring>
+            </p>
+            <p>
+                 <xar:mlstring>Further information on the Translations module can be found at</xar:mlstring>
+            </p>
+            <ul>
+                <li><xar:mlstring>Module project page at</xar:mlstring> <a title="#xarML('Translations Module - Extension 77')#" href="http:/xarigami.com/project/">xarigami project pages</a>.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

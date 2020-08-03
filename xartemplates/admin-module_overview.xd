@@ -1,0 +1,24 @@
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+          <xar:template type="module"  module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+            <xar:mlstring>Translate Modules</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+           <xar:template file="admin-menu" module="translations" type="module"/>
+
+            <xar:template type="module" file="druidbar" />
+            <xar:mlstring>Module name</xar:mlstring>: #$displayname#<br />
+            <xar:mlstring>Module original name</xar:mlstring>: #$name#<br />
+            <xar:mlstring>Module version</xar:mlstring>: #$version#<br />
+            <br />
+            <xar:mlstring>Make a choice</xar:mlstring>:<br />
+            <br />
+            <xar:template type="module" file="opbar" />
+        </div>
+    </div>
+</div>

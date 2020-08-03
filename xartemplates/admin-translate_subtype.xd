@@ -1,0 +1,69 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+          <xar:template type="module"  module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+            <xar:mlstring>Translate Subtype</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+           <xar:template file="admin-menu" module="translations" type="module"/>
+            <xar:template type="module" file="druidbar"/>
+
+            <h4>
+            <xar:ml>
+              <xar:mlstring>Translating: #(1) #(2)</xar:mlstring>
+              <xar:mlvar>#$dnTypeText#</xar:mlvar>
+              <xar:mlvar>#$dnName#</xar:mlvar>
+            </xar:ml>
+            </h4>
+
+            <xar:template type="module" file="trabar" />
+            <form method="post" action="#$action#">
+
+            <input type="hidden" name="dnType" value="#$dnType#"/>
+            <input type="hidden" name="dnName" value="#$dnName#"/>
+            <input type="hidden" name="extid" value="#$extid#"/>
+
+            <h5><xar:mlstring>Strings:</xar:mlstring></h5>
+            <xar:loop id="entries" name="$entries">
+              <div>
+                <xar:template type="module" file="translate-string-item" subdata="$loop:item"/>
+              </div>
+            </xar:loop>
+
+
+            <h5><xar:mlstring>Keys:</xar:mlstring></h5>
+            <xar:loop id="keyEntries" name="$keyEntries">
+              <div>
+                <xar:template type="module" file="translate-key-item" subdata="$loop:item"/>
+              </div>
+            </xar:loop>
+
+            <p>
+            <input type="submit" name="sbt" id="sbt" value="#xarML('OK')#" />
+            </p>
+
+            <h5><xar:mlstring>Fuzzy Strings:</xar:mlstring></h5>
+            <xar:loop id="fuzzyEntries" name="$fuzzyEntries">
+              <div>
+                <xar:template type="module" file="fuzzy-string-item" subdata="$loop:item"/>
+              </div>
+            </xar:loop>
+
+            <h5><xar:mlstring>Fuzzy Keys:</xar:mlstring></h5>
+            <xar:loop id="fuzzyKeyEntries" name="$fuzzyKeyEntries">
+              <div>
+                <xar:template type="module" file="fuzzy-key-item" subdata="$loop:item"/>
+              </div>
+            </xar:loop>
+
+            </form>
+            <br />
+            <xar:template type="module" file="opbar" />
+        </div>
+    </div>
+</div>

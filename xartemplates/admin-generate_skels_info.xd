@@ -1,0 +1,48 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<xar:base-include-javascript module="base" filename="formcheck.js" />
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+          <xar:template type="module"  module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+            <xar:mlstring>Generate Skels</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+           <xar:template file="admin-menu" module="translations" type="module"/>
+            <xar:template type="module" file="druidbar" />
+            <h2>
+              <xar:ml>
+                <xar:mlstring>Generating a skeleton for #(1) #(2)</xar:mlstring>
+                <xar:mlvar>#$dnTypeText#</xar:mlvar>
+                <xar:mlvar>#$dnName#</xar:mlvar>
+              </xar:ml>
+            </h2>
+
+            <p>
+              <xar:mlstring>Now we're going to generate skels, this operation could take a minute.</xar:mlstring>
+              <xar:if condition="$confirmskelsgen eq false">
+                <meta http-equiv="refresh" content="0;url=#$redirecturl#"/>
+                <br />
+                <xar:ml>
+                  <xar:mlstring>If you are not redirected to the results page click this <a href="#(1)">link</a>.</xar:mlstring>
+                  <xar:mlvar>#$redirecturl#</xar:mlvar>
+                </xar:ml>
+              <xar:else />
+                <form method="post" id="post" onsubmit="return xar_base_formCheck(this);"
+                      action="#xarModURL('translations', 'admin', 'generate_skels_result')#">
+                  <input type="hidden" name="dnType" value="#$dnType#"/>
+                  <input type="hidden" name="dnName" value="#$dnName#"/>
+                  <input type="hidden" name="extid" value="#$extid#"/>
+                  <input type="hidden" name="authid" value="#$authid#"/>
+                  <input type="submit" value="#xarML('GO')#"/>
+                </form>
+              </xar:if>
+            </p>
+            <br />
+            <xar:template type="module" file="opbar" />
+        </div>
+    </div>
+</div>

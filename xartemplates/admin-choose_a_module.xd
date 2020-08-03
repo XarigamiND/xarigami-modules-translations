@@ -1,0 +1,27 @@
+<xar:comment> License: GPL http://www.gnu.org/copyleft/gpl.html </xar:comment>
+<div class="xar-mod-page">
+    <div class="xar-mod-head">
+        <xar:if condition="!xarRequestIsAJAX()">
+          <xar:template type="module"  module="base" file="admin-menu" />
+        </xar:if>
+    </div>
+    <div class="xar-mod-body">
+        <h1>
+            <xar:mlstring>Choose a module</xar:mlstring>
+        </h1>
+        <div class="xar-mod-content">
+           <xar:template file="admin-menu" module="translations" type="module"/>
+            <xar:template type="module" file="druidbar" />
+            <p>
+            <xar:mlstring>Choose which module you want to translate from the list below.</xar:mlstring>
+            </p>
+            <ul>
+            <xar:loop name="$modlist">
+              <li><a href="#xarModURL('translations', 'admin', 'module_overview', array('extid' => $loop:item['regid']))#">
+                #$loop:item['name']#&nbsp;-&nbsp;#$loop:item['displayname']#
+              </a></li>
+            </xar:loop>
+            </ul>
+        </div>
+    </div>
+</div>
