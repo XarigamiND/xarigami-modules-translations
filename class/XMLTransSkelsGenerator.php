@@ -163,7 +163,11 @@ class XMLTranslationsSkelsGenerator
             $this->fp = fopen($this->fileName.'.swp', 'w');
             foreach ($lines as $line_num => $line) {
                 if (!strncmp($line, '</translations>', 15)) continue;
-                fwrite($this->fp, $line);
+                if (strncmp($line, '<translations ', 14) == 0) {
+                    fwrite($this->fp, "<translations xmlns=\"http://xarigami.com/2011/ns/translations\" locale=\"{$this->locale}\">\n");
+                } else {
+                    fwrite($this->fp, $line);
+                }
             }
         } else {
             $this->fp = fopen($this->fileName.'.swp', 'w');
