@@ -102,7 +102,7 @@ function translations_adminapi_generate_theme_skels($args)
     if (file_exists($filename)) {
         $lines = file($filename);
         foreach ($lines as $line) {
-            if ($line{0} == '#') continue;
+            if ($line[0] == '#') continue;
             list($key, $value) = explode('=', $line);
             $key = trim($key);
             $value = trim($value);
