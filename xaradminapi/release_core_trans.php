@@ -20,7 +20,7 @@ function translations_adminapi_release_core_trans($args)
     extract($args);
 
     // Argument check
-    assert('isset($locale)');
+    assert(isset($locale));
 
     if (!$bt = xarModAPIFunc('translations','admin','release_backend_type')) return;;
     // Security Check

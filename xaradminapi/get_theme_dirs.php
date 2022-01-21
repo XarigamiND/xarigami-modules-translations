@@ -48,7 +48,7 @@ function translations_adminapi_get_theme_dirs($args)
     $sitethemedir = xarConfigGetVar('Site.BL.ThemesDirectory');
 
     // Argument check
-    assert('isset($themedir)');
+    assert(isset($themedir));
     $prefix = "$sitethemedir/$themedir/";
 
     if (file_exists("$sitethemedir/$themedir")) {

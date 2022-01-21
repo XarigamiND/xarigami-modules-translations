@@ -127,7 +127,7 @@ class XMLTranslationsSkelsGenerator
 
     function create($ctxType, $ctxName)
     {
-        assert('!empty($this->baseDir)');
+        assert(!empty($this->baseDir));
         $this->fileName = $this->baseDir;
 
         if (!preg_match("/^[a-z]+:$/", $ctxType)) {
@@ -149,7 +149,7 @@ class XMLTranslationsSkelsGenerator
 
     function open($ctxType, $ctxName)
     {
-        assert('!empty($this->baseDir)');
+        assert(!empty($this->baseDir));
         $this->fileName = $this->baseDir;
 
         if (!preg_match("/^[a-z]+:$/", $ctxType)) {
@@ -193,7 +193,7 @@ class XMLTranslationsSkelsGenerator
 
     function deleteIfExists($ctxType, $ctxName)
     {
-        assert('!empty($this->baseDir)');
+        assert(!empty($this->baseDir));
         $this->fileName = $this->baseDir;
 
         if (!preg_match("/^[a-z]+:$/", $ctxType)) {

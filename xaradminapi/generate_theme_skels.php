@@ -27,7 +27,7 @@ function translations_adminapi_generate_theme_skels($args)
     extract($args);
 
     // Argument check
-    assert('isset($themeid) && isset($locale)');
+    assert(isset($themeid) && isset($locale));
 
     if (!$modinfo = xarModGetInfo($themeid,'theme')) return;
     $themename = $modinfo['name'];

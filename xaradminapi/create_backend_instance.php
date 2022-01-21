@@ -17,8 +17,8 @@ function translations_adminapi_create_backend_instance($args)
     extract($args);
 
     // Argument check
-    assert('isset($interface)');
-    assert('isset($locale)');
+    assert(isset($interface));
+    assert(isset($locale));
 
     if ($interface == 'ReferencesBackend') {
         $bt = xarModAPIFunc('translations','admin','work_backend_type');

@@ -19,7 +19,7 @@ function translations_adminapi_get_module_files($args)
     extract($args);
 
     // Argument check
-    assert('isset($moddir) && isset($pattern)');
+    assert(isset($moddir) && isset($pattern));
 
     $names = array();
     if (file_exists($moddir)) {

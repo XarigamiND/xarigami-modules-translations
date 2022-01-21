@@ -28,7 +28,7 @@ function translations_adminapi_generate_module_trans($args)
     extract($args);
 
     // Argument check
-    assert('isset($modid) && isset($locale)');
+    assert(isset($modid) && isset($locale));
 
     if (!($modinfo = xarModGetInfo($modid))) return;
     $modname = $modinfo['name'];

@@ -29,7 +29,7 @@ function translations_adminapi_generate_core_skels($args)
     extract($args);
 
     // Argument check
-    assert('isset($locale)');
+    assert(isset($locale));
 
     if (!xarSecurityCheck('AdminTranslations')) throw new ForbiddenOperationException();
 

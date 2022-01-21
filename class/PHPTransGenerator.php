@@ -133,7 +133,7 @@ class PHPTranslationsGenerator
 
     function create($ctxType, $ctxName)
     {
-        assert('!empty($this->baseDir)');
+        assert(!empty($this->baseDir));
         $this->fileName = $this->baseDir;
 
         if (!preg_match("/^[a-z]+:$/", $ctxType)) {

@@ -21,7 +21,7 @@ function translations_adminapi_generate_core_trans($args)
     extract($args);
 
     // Argument check
-    assert('isset($locale)');
+    assert(isset($locale));
 
     // Security Check
     if (!xarSecurityCheck('AdminTranslations')) throw new ForbiddenOperationException();
